@@ -15,6 +15,12 @@ export default config({
           label: "Excerpt",
           validation: { length: { max: 300 } },
         }),
+        image: fields.image({
+          label: "Bild",
+        }),
+        imageCopyright: fields.text({
+          label: "Bildrechte",
+        }),
         links: fields.array(
           fields.object({
             label: fields.text({
