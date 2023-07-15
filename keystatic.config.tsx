@@ -5,20 +5,28 @@ export default config({
     kind: "local",
   },
   collections: {
-    posts: collection({
-      label: "Posts",
-      slugField: "title",
-      path: "posts/*",
-      format: { contentField: "content" },
+    scandals: collection({
+      label: "Skandale",
+      slugField: "name",
+      path: "skandale/*",
       schema: {
-        title: fields.slug({ name: { label: "Title" } }),
-        content: fields.document({
-          label: "Content",
-          formatting: true,
-          dividers: true,
-          links: true,
-          images: true,
-        }),
+        name: fields.slug({ name: { label: "Name" } }),
+        excerpt: fields.text({ label: "Excerpt" }),
+        links: fields.array(
+          fields.object({
+            label: fields.text({
+              label: "Link Text",
+            }),
+            link: fields.url({
+              label: "Link",
+            }),
+          }),
+          {
+            label: "Links",
+            itemLabel: (props) =>
+              `${props.fields.label.value} -> ${props.fields.link.value}`,
+          }
+        ),
       },
     }),
   },
