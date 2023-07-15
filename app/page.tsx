@@ -37,7 +37,7 @@ export default async function Homepage() {
           )}
 
           {home.topRightImage && (
-            <div className="absolute w-64 h-16 top-5 right-5  ">
+            <div className="absolute w-64 h-16 top-5 right-5">
               <Image
                 src={home.topRightImage}
                 alt={home.topRigthImageLabel}
@@ -48,13 +48,22 @@ export default async function Homepage() {
           )}
         </div>
       </section>
-      <ul>
+      <section className="max-w-full p-5 grid grid-cols-2 md:grid-cols-3 gap-4">
         {scandals.map((scandal) => (
-          <li key={scandal.slug}>
-            <Link href={`/${scandal.slug}`}>{scandal.entry.name}</Link>
-          </li>
+          <div key={scandal.slug} className="relative h-96">
+            {scandal.entry.image && (
+              <Image
+                src={scandal.entry.image}
+                alt={scandal.entry.name}
+                fill
+                className="object-cover"
+              />
+            )}
+          </div>
+          // <div>{scandal.entry.name}</div>
+          // <Link href={`/${scandal.slug}`}>{scandal.entry.name}</Link>
         ))}
-      </ul>
+      </section>
     </main>
   );
 }

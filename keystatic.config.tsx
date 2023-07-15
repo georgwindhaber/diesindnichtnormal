@@ -13,10 +13,11 @@ export default config({
         name: fields.slug({ name: { label: "Name" } }),
         excerpt: fields.text({
           label: "Excerpt",
-          validation: { length: { max: 300 } },
         }),
         image: fields.image({
           label: "Bild",
+          directory: "public/images/scandals",
+          publicPath: "/images/scandals/",
         }),
         imageCopyright: fields.text({
           label: "Bildrechte",

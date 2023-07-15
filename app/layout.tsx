@@ -4,9 +4,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-surface-100">
       <head>
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#121212" />
       </head>
       <body>{children}</body>
     </html>
