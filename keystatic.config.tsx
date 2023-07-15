@@ -43,14 +43,35 @@ export default config({
     home: singleton({
       label: "Die sind nicht normal!",
       schema: {
-        title: fields.text({ label: "Title" }),
-        content: fields.document({
-          label: "Content",
-          formatting: true,
-          dividers: true,
-          links: true,
-          images: true,
+        title: fields.text({ label: "Titel" }),
+        heroTitleImage: fields.image({
+          label: "Überschrift Bild",
+          directory: "public/images/home",
+          publicPath: "/images/home/",
         }),
+        heroTitleImageLabel: fields.text({
+          label: "Überschrift Bild Label",
+        }),
+        heroBackgroundImage: fields.image({
+          label: "Hintergrund Bild",
+          directory: "public/images/home",
+          publicPath: "/images/home/",
+        }),
+        topRightImage: fields.image({
+          label: "Bild oben rechts/JG Logo",
+          directory: "public/images/home",
+          publicPath: "/images/home/",
+        }),
+        topRigthImageLabel: fields.text({
+          label: "Logo Label",
+        }),
+        // content: fields.document({
+        //   label: "Content",
+        //   formatting: true,
+        //   dividers: true,
+        //   links: true,
+        //   images: true,
+        // }),
       },
     }),
   },
