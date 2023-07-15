@@ -11,7 +11,10 @@ export default config({
       path: "skandale/*",
       schema: {
         name: fields.slug({ name: { label: "Name" } }),
-        excerpt: fields.text({ label: "Excerpt" }),
+        excerpt: fields.text({
+          label: "Excerpt",
+          validation: { length: { max: 300 } },
+        }),
         links: fields.array(
           fields.object({
             label: fields.text({

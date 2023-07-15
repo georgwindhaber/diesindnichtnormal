@@ -1,9 +1,9 @@
-import Link from 'next/link';
-import { reader } from './reader';
-import './styles.css';
+import Link from "next/link";
+import { reader } from "./reader";
+import "./styles.css";
 
 export default async function Homepage() {
-  const posts = await reader.collections.posts.all();
+  const scandals = await reader.collections.scandals.all();
 
   return (
     <div>
@@ -15,9 +15,9 @@ export default async function Homepage() {
       </p>
       <h2>Posts</h2>
       <ul>
-        {posts.map(post => (
-          <li key={post.slug}>
-            <Link href={`/${post.slug}`}>{post.entry.title}</Link>
+        {scandals.map((scandal) => (
+          <li key={scandal.slug}>
+            <Link href={`/${scandal.slug}`}>{scandal.entry.name}</Link>
           </li>
         ))}
       </ul>
